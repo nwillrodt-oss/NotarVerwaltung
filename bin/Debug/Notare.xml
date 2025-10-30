@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<Notarverwaltung>
+	<Tree>
+		<Treenode Name="Personen" Text="Personen" Typ="Static" Key="Personen" Tag="Personen" Imageindex="10" 
+			bShowSubnodes="True" bShowKontextMenue="True"
+			SQL="" 
+			WHERE=""
+			Description="Liste aller Personen (Bewerber und Notare)">
+			<List Name="Personen" Text="Personen" Imageindex="9" New="True" Edit="True" Delete="True" SelectNode="True"  
+				EditName ="Personen"
+				bShowKontextMenue="True" bValueList="False" bListSubNodes="False"
+				SQL="SELECT ID010, NACHNAME010 AS Nachname, VORNAME010 AS Vorname,  ANREDE010 AS Anrede, TITEL010 AS Titel, GEB010 AS Geburtstag , STATUS010 AS Status FROM RA010 ORDER BY NACHNAME010" 
+				WHERE="">
+			</List>
+			<Treenode Name="Bewerber" Text="Bewerber" Typ="Static" Key="Bewerber" Tag="Bewerber" Imageindex="8" 
+				bShowSubnodes="True" bShowKontextMenue="True"
+				SQL ="" 
+				WHERE="" 
+				Description="Liste aller Bewerber">
+				<List Name="Bewerber"  Text="Bewerber" Imageindex="8" New="True" Edit="True" Delete="True" SelectNode="False" 
+					EditName ="Personen"
+					bShowKontextMenue="True" bValueList="False" bListSubNodes="False" 
+					SQL="SELECT ID010, NACHNAME010 AS Nachname, VORNAME010 AS Vorname, ANREDE010 AS Anrede, TITEL010 AS Titel, GEB010 AS Geburtstag , STATUS010 AS Status FROM RA010 WHERE RA010.STATUS010='Bewerber' ORDER BY NACHNAME010" 
+					WHERE="">
+				</List>
+			</Treenode>
+			<Treenode Name="Notare" Typ="Static" Text="Notare" Key="Notare" Tag="Notare" Imageindex="7" 
+				bShowSubnodes="False"  bShowKontextMenue="True"
+				SQL ="" 
+				WHERE =""
+				Description="Liste aller aktiven Notare">
+				<List Name="Notare" Text="Notare" Imageindex="7" New="True" Edit="True" Delete="True" SelectNode="False" 
+					EditName ="Personen"
+					bShowKontextMenue="True" bValueList="False" bListSubNodes="False" 
+					SQL="SELECT ID010, NACHNAME010 AS Nachname, VORNAME010 AS Vorname, ANREDE010 AS Anrede,  TITEL010 AS Titel, GEB010 AS Geburtstag, BESTELLT010 as Bestellt,AZ010 AS Aktenzeichen, AG010 AS Amtsgericht, LG010 AS Landgericht , STATUS010 AS Status FROM RA010 WHERE RA010.STATUS010='Notar' ORDER BY NACHNAME010" 
+					WHERE="">
+				</List>
+			</Treenode>
+			<Treenode Name="Notarebestellt" Typ="Static" Text="Notare bestellt" Key="Notare bestellt" Tag="Notare bestellt"  Imageindex="7"
+				bShowSubnodes="False"  bShowKontextMenue="True"
+				SQL="" WHERE="" 
+				Description="Notare die im aktuellen Jahr bestellt wurden">
+				<List  Name="Notarebestellt" Imageindex="7" New="True" Edit="True" Delete="True" SelectNode="False"
+					EditName ="Personen"
+					bValueList="False" bListSubNodes="False"  bShowKontextMenue="True"
+					SQL="SELECT ID010, NACHNAME010 AS Nachname, VORNAME010 AS Vorname, ANREDE010 AS Anrede,  TITEL010 AS Titel, GEB010 AS Geburtstag, BESTELLT010 as Bestellt,AZ010 AS Aktenzeichen, AG010 AS Amtsgericht, LG010 AS Landgericht , STATUS010 AS Status FROM RA010 WHERE RA010.STATUS010='Notar' ANd Year(bestellt010) = Year(getdate()) ORDER BY NACHNAME010" 
+					WHERE="">
+				</List>
+			</Treenode>
+			<Treenode Name="Notareausgeschieden" Typ="Static" Text="Notare ausgeschieden" Key="Notare ausgeschieden" Tag="Notare ausgeschieden" Imageindex="7" 
+				bShowSubnodes="False" bShowKontextMenue="True"
+				SQL="" WHERE=""
+				Description="Liste aller ausgeschiedenen Notare">
+				<List Name="Notareausgeschieden" Imageindex="7" New="True" Edit="True" Delete="True" SelectNode="False"
+					EditName ="Personen"
+					bValueList="False" bListSubNodes="False"   bShowKontextMenue="True"
+					SQL="SELECT ID010, NACHNAME010 AS Nachname, VORNAME010 AS Vorname, ANREDE010 AS Anrede,  TITEL010 AS Titel, GEB010 AS Geburtstag, BESTELLT010 as Bestellt, AZ010 AS Aktenzeichen,AG010 AS Amtsgericht, STATUS010 AS Status , AUSGESCH010 as AusgeschiedenAm FROM RA010 WHERE RA010.STATUS010='ausgeschieden' OR RA010.STATUS010='a. D.' ORDER BY NACHNAME010" 
+					WHERE="">
+				</List>
+			</Treenode>
+		</Treenode>
+		<Treenode Name="Statistik" Typ="Static" Text="Statistik" Key="Statistik" Tag="Statistik" Imageindex="12"
+			bShowSubnodes="True" bShowKontextMenue="False" 
+			SQL="" 
+			WHERE=""
+			Description="Liste aller m&#246;glichen Statistiken">
+			<List Name="Statistik" New="True" Edit="False" Delete="True" SelectNode="True"
+				bValueList="False" bListSubNodes="True" Imageindex="12"  bShowKontextMenue="False"
+				SQL="" 
+				WHERE=""
+				Description="">		
+			</List>
+			<Treenode Name="GesamtProBezirk" Typ="Static" Text="Gesamt pro Bezirk" Key="GesamtProBezirk" Tag="GesamtProBezirk" Imageindex="12"
+				bShowSubnodes="True"  bShowKontextMenue="False"
+				SQL="" 
+				WHERE=""
+				Description="Anzahl der Notare pro LG Bezirk">
+				<List Name="GesamtProBezirk" Text="Gesamt pro Bezirk" Imageindex="12" New="False" Edit="False" Delete="False" SelectNode="False"
+					bValueList="False" bListSubNodes="False" bShowKontextMenue="True"
+					SQL="Select ID003, LGNAME003 AS Landgericht ,COUNT(*) AS Anzahl FROM  RA010 INNER JOIN LG003 ON LG010 = LGNAME003 WHERE STATUS010 = 'Notar' GROUP BY ID003, LGNAME003 ORDER BY LGNAME003" 
+					WHERE="">
+				</List>
+			</Treenode>
+			<Treenode Name="GesamtProAg" Typ="Static" Text="Gesamt pro AG" Key="GesamtProAg" Tag="GesamtProAg"  Imageindex="12" 
+				bShowSubnodes="True" bShowKontextMenue="False"
+				SQL="" 
+				WHERE=""
+				Description="Anzahl der Notare pro AG Bezirk">
+				<List Name="GesamtProAg" Text="Gesamt pro AG" Imageindex="12" New="False" Edit="False" Delete="False" SelectNode="False"
+					bValueList="False" bListSubNodes="False"  bShowKontextMenue="True" 
+					SQL="Select ID004, LGNAME003 AS Landgericht, AGNAME004 AS Amtsgericht ,COUNT(*) AS Anzahl FROM  RA010 INNER JOIN  (AG004 LEFT JOIN LG003 ON FK003004 =ID003 ) ON AG010 = AGNAME004 WHERE STATUS010 = 'Notar' GROUP BY ID004, LGNAME003, AGNAME004 ORDER BY LGNAME003, AGNAME004" 
+					WHERE="">
+				</List>
+			</Treenode>
+			<Treenode Name="Altersstruktur" Typ="Static" Text="Altersstruktur" Key="Altersstruktur" Tag="Altersstruktur" Imageindex="12"
+				bShowSubnodes="True" bShowKontextMenue="False"
+				SQL="" WHERE=""
+				Description="Altersverteilung der Notare">
+				<List Name="Altersstruktur" Text="Altersstruktur" Imageindex="12" New="False" Edit="False" Delete="False" SelectNode="False"
+				bValueList="False" bListSubNodes="False"   bShowKontextMenue="True"
+					SQL="SELECT 5 as Orderby, '&gt; 70' AS Altersgruppe , Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-100,Getdate()) AND  DATEADD(year,-70,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 10 as Orderby, '65 - 70' AS Altersgruppe , Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-70,Getdate()) AND  DATEADD(year,-65,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 15 as Orderby, '60 - 64'  AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-65,Getdate()) AND  DATEADD(year,-60,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 20 as Orderby, '55 - 59'  AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-60,Getdate()) AND DATEADD(year,-55,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 25 as Orderby,'50 - 54'  AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-55,Getdate()) AND DATEADD(year,-50,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 30 as Orderby, '45 - 49'  AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-50,Getdate()) AND  DATEADD(year,-45,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 35 as Orderby,'39 - 44'  AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-45,Getdate()) AND  DATEADD(year,-39,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 40 as Orderby,'&lt; 39'  AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-39,Getdate()) AND  getdate() AND RA010.STATUS010='Notar' UNION SELECT 45 as Orderby,'ohne Geburtsdatum' AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE ISNULL(geb010,'')=''  AND RA010.STATUS010='Notar' ORDER BY Orderby" 
+					WHERE="">
+				</List>
+			</Treenode>
+		</Treenode> 
+	</Tree>
+	<Menue>
+		<MainMenue Name="mnuMain">
+			<MenueItem Name="mnuDatei" Text="Datei">
+				<MenueItem Name="mnuExit" Text="Beenden" Imageindex ="4">
+				</MenueItem>
+			</MenueItem>
+			<MenueItem Name="mnuExtras" Text="Extras">
+				<MenueItem Name="mnuOptions" Text="Einstellungen" Imageindex ="6">
+				</MenueItem>
+			</MenueItem>
+			<MenueItem Name="mnuView" Text="Ansicht">
+				<MenueItem Name="mnuDetail" Text="Details" Imageindex ="">
+				</MenueItem>
+				<MenueItem Name="mnuSymbol" Text="Symbole" Imageindex ="">
+				</MenueItem>
+			</MenueItem>
+			<MenueItem Name="mnuInfo" Text="?">
+				<MenueItem Name="mnuAbout" Text="Info" Imageindex ="3">
+				</MenueItem>
+				<MenueItem Name="mnuReadMe" Text="ReadMe Anzeigen" Imageindex ="5">
+				</MenueItem>
+			</MenueItem>			
+		</MainMenue>
+		<ToolBar>
+			<MenueItem Name="mnuBack" Text="Zur&#252;ck" Imageindex ="13" 
+				ToolTip="" StartEnabled ="False">
+			</MenueItem>
+			<MenueItem Name="mnuForward" Text="Vorw&#228;rts" Imageindex ="14" 
+				ToolTip="" StartEnabled ="False">
+			</MenueItem>
+			<MenueItem Name="mnuExit" Text="Beenden" Imageindex ="4" 
+				ToolTip="Anwendung beenden" StartEnabled ="True">
+			</MenueItem>
+			<MenueItem Name="mnuOptions" Text="Optionen" Imageindex ="6" 
+				ToolTip="Einstellungen bearbeiten"  StartEnabled ="True">
+			</MenueItem>
+			<MenueItem Name="mnuAbout" Text="Info" Imageindex="3"
+				ToolTip="" StartEnabled ="True">
+			</MenueItem>
+			<MenueItem Name="mnuHelp" Text="Hilfe" Imageindex ="2"
+				ToolTip="" StartEnabled ="True">
+			</MenueItem>
+		</ToolBar>
+	</Menue>
+	<Edit>
+		<EditForm Name="Personen" IDOrder="" SQL="SELECT ID010 AS ID , Anrede010 AS Anrede, Vorname010 AS Vorname ,Nachname010 As Nachname FROM RA010" WHERE="RA010.ID010=" 
+			Imageindex="7">
+			<Field Name="ID" Fieldname="ID" Locked="False" Enabled="True" Visible="False" LockedNew="False" 
+				Valuelist ="" ValueListSQL="" Defaultvalue="Herr" DefaultSQL=""></Field>
+			<Field Name="Anrede" Fieldname="Anrede" Locked="False" Enabled="True" Visible="True" LockedNew="False" 
+				Valuelist ="Herr;Frau" ValueListSQL="" Defaultvalue="Herr" DefaultSQL=""></Field>
+			<Delete Posible="True" ASKSQL="SELECT 'M&#246;chten Sie die Person ' + RA010.Nachname010 + ' wirlich l&#246;schen?' FROM RA010" 
+				DelSQL="DELETE FROM RA010">
+			</Delete>
+		</EditForm>
+	</Edit>
+</Notarverwaltung>
