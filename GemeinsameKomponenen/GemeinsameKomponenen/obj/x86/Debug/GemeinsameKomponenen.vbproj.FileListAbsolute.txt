@@ -1,0 +1,4 @@
+C:\Entwicklung\VB.Net\GemeinsameKomponenen\GemeinsameKomponenen\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Entwicklung\VB.Net\GemeinsameKomponenen\GemeinsameKomponenen\obj\x86\Debug\GemeinsameKomponenen.frmAbout.resources
+C:\Entwicklung\VB.Net\GemeinsameKomponenen\GemeinsameKomponenen\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Entwicklung\VB.Net\GemeinsameKomponenen\GemeinsameKomponenen\obj\x86\Debug\GenerateResource.write.1.tlog
