@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<Options Apppname="DBCheck">
+	<Kategorie Name="Protokoll">
+		<Option Name="ErrorProtokollFile" Caption="ErrorProtokollFile" Value="%EigeneDateien%ErrorProt.txt" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="True" bBool="False" bExpert="false"
+			Kategorie="Protokoll">
+		</Option>
+		<Option Name="ProtokollFile" Caption="ProtokollFile" Value="%EigeneDateien%CompileProt.txt" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="True" bBool="False" bExpert="false"
+			Kategorie="Protokoll">
+		</Option>
+	</Kategorie>
+	<Kategorie Name="Datenbankverbindung">
+		<Option Name="AutoConnect" Caption="Automatisch Verbinden" Value="false" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="True"
+			Kategorie="Datenbankverbindung">
+		</Option>
+		<Option Name="LastConnection" Caption="Letze DB Verbindung" Value="" List=""
+			bCrypt="True" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Datenbankverbindung">
+		</Option>		
+	</Kategorie>
+	<Kategorie Name="Vergleichsprotokoll">
+		<Option Name="ProtDir" Caption="Pprotokoll Verzeichnis" Value="%AppFolder%Vergleich\" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="True" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Default Einstellungen">
+		</Option>
+		<Option Name="UserInProt" Caption="Benutzername im Protokoll anzeigen" Value="True" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="True" bFile="False" bBool="True" bExpert="False"
+			Kategorie="Vergleichsprotokoll">
+		</Option>
+		<Option Name="CompInProt" Caption="Computername im Protokoll anzeigen" Value="True" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="False"
+			Kategorie="Vergleichsprotokoll">
+		</Option>
+		<Option Name="DateInProt" Caption="Datum und Uhrzeit im Protokoll anzeigen" Value="True" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="False"
+			Kategorie="Vergleichsprotokoll">
+		</Option>
+		<Option Name="DiffOnly" Caption="Nur Abweichungen Protokollieren" Value="True" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="False"
+			Kategorie="Default Einstellungen">
+		</Option>
+		<Option Name="CountTables" Caption="Anz. der Datens&#228;tze anzeigen" Value="True" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="False"
+			Kategorie="Vergleichsprotokoll">
+		</Option>
+		<Option Name="LastProtokoll" Caption="Letze Protokolldatei" Value="" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="True" bBool="False" bExpert="True"
+			Kategorie="Default Einstellungen">
+		</Option>
+	</Kategorie>
+	<Kategorie Name="Vergleichsoptionen">
+		<Option Name="CheckFields" Caption="Tabellen Felder &#252;berpr&#252;fen" Value="True" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="False"
+			Kategorie="Vergleichsoptionen">
+		</Option>
+		<Option Name="CheckIndizes" Caption="Indizes jeder Tabelle pr&#252;fen" Value="True" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="False"
+			Kategorie="Vergleichsoptionen">
+		</Option>
+		<Option Name="CheckOldTables" Caption="Alte Tabellen pr&#252;fen" Value="True" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="False"
+			Kategorie="Vergleichsoptionen">
+		</Option>
+		<Option Name="DBSchemaPath" Caption="Schemadateien Verzeichnis" Value="%AppFolder%Schema\" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="True" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Vergleichsoptionen">
+		</Option>
+		<Option Name="DBSchemaFile" Caption="Aktuelle Schemadatei" Value="%AppFolder%Schema\MegaDBCheck.ini" List=""
+			bCrypt="False" bEdit="false" bDisabled="False" bPath="False" bFile="True" bBool="False" bExpert="True"
+			Kategorie="Vergleichsoptionen">
+		</Option>		
+	</Kategorie>
+	<Kategorie Name="Anzeige">
+		<Option Name="SplashImage" Caption="Splash Image" Value="%AppImages%Splash2.jpg" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="True" bFile="False" bBool="False" bExpert="True"
+			Kategorie="Anzeige">
+		</Option>
+		<Option Name="Splash" Caption="Splash verbergen" Value="False" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="True"
+			Kategorie="Anzeige">
+		</Option>
+		<Option Name="AboutImage" Caption="Info Image" Value="%AppImages%About.gif" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="True" bBool="False" bExpert="True"
+			Kategorie="Anzeige">
+		</Option>
+		<Option Name="Tranzparenz" Caption="Tranzparenz" Value="1" List="0,3;0,5;0,7;0,9;1"
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="True" bBool="False" bExpert="True"
+			Kategorie="Anzeige">
+		</Option>
+	</Kategorie>
+</Options>
+<!-- Variablen fuer Ordner
+%WinDir%
+%WinSys32%
+%AppImages%
+%AppFolder%
+-->
+<!-- Sonderzeichen
+&      &amp;
+'      &apos;
+<      &lt;
+>      &gt;
+"      &quot;
+A Umlaut  &#196;
+O Umlaut       &#214;
+U Umlaut      &#220;
+a Umlaut      &#228;
+o Umlaut      &#246;
+u Umlaut      &#252;
+sz      &#223;
+-->
