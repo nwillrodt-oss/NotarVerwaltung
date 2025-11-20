@@ -1,0 +1,1 @@
+Update ra010 Set Verstorben010 = 0 Where Verstorben010 is null
