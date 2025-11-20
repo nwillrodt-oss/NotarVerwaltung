@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<Options Version="0.4.0">
+	<Kategorie Name="Schreibwerk">
+		<Option Name="Vorlagenverzeichnis" Caption="Vorlagenverzeichnis" Value="\\OLG-SL-SRV2\Ablage\Notarangelegenheiten\Vorlagen" List=""
+			bCrypt="False" bEdit="True" bDisabled="True" bPath="True" bFile="False" bBool="False" bExpert="True"
+			Kategorie="Schreibwerk">
+		</Option>
+		<Option Name="Ablageverzeichnis" Caption="Ablageverzeichnis" Value="\\OLG-SL-SRV2\Datenbanken\NotarverwaltungAblage" List=""
+			bCrypt="False" bEdit="True" bDisabled="True" bPath="True" bFile="False" bBool="False" bExpert="True"
+			Kategorie="Schreibwerk">
+		</Option>
+		<Option Name="DOTX" Caption="DOTX Vorlagen (Word 2007) aktzeptieren" Value="False" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="True"
+			Kategorie="Schreibwerk">
+		</Option>
+		<Option Name="DOCX" Caption="Dokumente im DOCX Format (Word 2007) speichern" Value="False" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="True"
+			Kategorie="Schreibwerk">
+		</Option>
+	</Kategorie>
+	<Kategorie Name="Protokoll">
+		<Option Name="ErrorProtokollFile" Caption="ErrorProtokollFile" Value="%EigeneDateien%ProtokollFile.txt" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="True" bBool="False" bExpert="True"
+			Kategorie="Protokoll">
+		</Option>
+		<Option Name="ProtokollFile" Caption="ProtokollFile" Value="%EigeneDateien%ProtokollFile.txt" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="True" bBool="False" bExpert="True"
+			Kategorie="Protokoll">
+		</Option>
+	</Kategorie>
+	<Kategorie Name="Datenbankverbindung">
+		<Option Name="AutoConnect" Caption="Automatisch Verbinden" Value="True" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="True"
+			Kategorie="Datenbankverbindung">
+		</Option>
+		<Option Name="LastConnection" Caption="Letze DB Verbindung" Value="73493C2F2F413C2F451220255053220017093317482D07180E110D14011611533C0E101B361D0117595729020432111B" List=""
+			bCrypt="True" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Datenbankverbindung">
+		</Option>		
+	</Kategorie>
+	<Kategorie Name="Benutzeranmeldung">
+		<Option Name="UserLoginTable" Caption="UserLoginTable" Value="USER001" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Benutzeranmeldung">
+		</Option>
+		<Option Name="UserNameField" Caption="UserNameField" Value="USERNAME001" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Benutzeranmeldung">
+		</Option>
+		<Option Name="UserPWDField" Caption="UserPWDField" Value="PWD001" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Benutzeranmeldung">
+		</Option>
+		<Option Name="UserMaxCount" Caption="UserMaxCount" Value="3" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Benutzeranmeldung">
+		</Option>
+		<Option Name="LoginText" Caption="LoginText" Value="Geben Sie bitte Ihren Benutzernamen und Ihr Kennwort an." List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Benutzeranmeldung">
+		</Option>
+		<Option Name="SingleSignOn" Caption="Automatisch Anmelden" Value="True" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="True"
+			Kategorie="Benutzeranmeldung">
+		</Option>
+	</Kategorie>
+	<Kategorie Name="Anzeige">
+		<Option Name="SplashImage" Caption="Splash Image" Value="%AppImages%Splash.jpg" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="True" bFile="False" bBool="False" bExpert="True"
+			Kategorie="Anzeige">
+		</Option>
+		<Option Name="Splash" Caption="Splash verbergen" Value="False" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="True"
+			Kategorie="Anzeige">
+		</Option>
+		<Option Name="SpliterPos" Caption="" Value="0,3" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Anzeige">
+		</Option>
+		<Option Name="MainWindowSize" Caption="" Value="10000/6000" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Anzeige">
+		</Option>
+		<Option Name="MainWindowState" Caption="" Value="0" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Anzeige">
+		</Option>
+		<Option Name="DBWindowState" Caption="" Value="0" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Anzeige">
+		</Option>
+		<Option Name="AboutImage" Caption="Info Image" Value="%AppImages%Wagge.gif" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="True" bBool="False" bExpert="True"
+			Kategorie="Anzeige">
+		</Option>
+		<Option Name="Tranzparenz" Caption="Tranzparenz" Value="1" List="0,3;0,5;0,7;0,9;1"
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="True" bBool="False" bExpert="True"
+			Kategorie="Anzeige">
+		</Option>
+	</Kategorie>
+	<Kategorie Name="Bedienumg">
+		<Option Name="StartOnLastNode" Caption="Letzte Auswahl nach Neustart wieder anzeigen" Value="False" List=""
+			bCrypt="False" bEdit="True" bDisabled="False" bPath="False" bFile="False" bBool="True" bExpert="True"
+			Kategorie="Bedienumg">
+		</Option>
+		<Option Name="LastNode" Caption="LetzterKnoten" Value="" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Bedienumg">
+		</Option>
+		<Option Name="DefaultSearch" Caption="Standart Suche" Value="Personen Nachname" List=""
+			bCrypt="False" bEdit="False" bDisabled="False" bPath="False" bFile="False" bBool="False" bExpert="False"
+			Kategorie="Bedienumg">
+		</Option>
+	</Kategorie>
+</Options>
+
+<!-- Sonderzeichen
+&      &amp;
+'      &apos;
+<      &lt;
+>      &gt;
+"      &quot;
+A Umlaut  &#196;
+O Umlaut       &#214;
+U Umlaut      &#220;
+a Umlaut      &#228
+o Umlaut      &#246;
+u Umlaut      &#252;
+sz      &#223;
+-->

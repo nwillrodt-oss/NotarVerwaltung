@@ -1,0 +1,11 @@
+Verweise für Notarverwaltung
+
+System32\msvbvm60.dll								Visual Basic for Applications
+VB6.olb										Visual Basic objects ans Procedures
+%ProgrammDir%\Gemeinsame Dateien\System\ado\msado25.tlb				Microsoft ActivX Data Objects 2.5 Library
+System32\scrrun.dll								Microsoft Scripting Runtime
+System32\MSSTDFMT.dll								Microsoft Data Formation Object Library 6.0 (SP4)
+System32\msbind.dll								Microsoft Data Binding Collection
+System32\MSCOMCTL.OCX								Microsoft Windows Common Controls 6.0 (SP6)
+%ProgrammDir%\MSOffice\Office11MSWORD.OLB					Microsoft Word 11.0 Object Library
+System32\msxml.dll								Microsoft XML, Version 2.0

@@ -1,0 +1,10 @@
+VBGROUP 5.0
+StartupProject=NotarVerwaltung.vbp
+Project=..\_Allg. Komponenten\DBConnect\DBConnect.vbp
+Project=..\_Allg. Komponenten\Errorhandler\Error.vbp
+Project=..\_Allg. Komponenten\SQLTools\SQLTools.vbp
+Project=..\_Allg. Komponenten\Tools\Tools.vbp
+Project=..\_Allg. Komponenten\ObjectBag\ObjectBag.vbp
+Project=..\_Allg. Komponenten\RegTools\RegTools.vbp
+Project=..\_Allg. Komponenten\Options\Options.vbp
+Project=..\_Allg. Komponenten\OfficeTools\OfficeTools.vbp

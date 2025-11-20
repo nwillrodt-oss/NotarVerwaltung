@@ -1,0 +1,452 @@
+<?xml version="1.0"?>
+<Root Version="0.4.0">
+	<Tree>
+		<TreeNode Name="Personen" OpenKey="" Typ="Statisch" Text="Personen" Key="Personen" Tag="Personen" Image="7" bShowSubnodes="True" bShowKontextMenue="True"
+			SQL="" WHERE=""
+			Description="Liste aller Personen (Bewerber und Notare)">
+			<List Tag="Personen" bValueList="False" bListSubNodes="False" Image="7" New="True" Edit="True" Delete="True" SelectNode="True" bShowKontextMenue="True"
+				SQL="SELECT ID010, NACHNAME010 AS Nachname, VORNAME010 AS Vorname,  ANREDE010 AS Anrede, TITEL010 AS Titel, GEB010 AS Geburtstag , STATUS010 AS Status FROM RA010 ORDER BY NACHNAME010" WHERE="">		
+			</List>
+			<SubNode Name="Bewerber" Typ="Statisch" Text="Bewerber" Key="Bewerber" Tag="Bewerber" Image="22" bShowSubnodes="False" bShowKontextMenue="True"
+				SQL="" WHERE=""
+				Description="Liste aller Bewerber">
+				<List Tag="Bewerber" bValueList="False" bListSubNodes="False" Image="22" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT ID010, NACHNAME010 AS Nachname, VORNAME010 AS Vorname, ANREDE010 AS Anrede, TITEL010 AS Titel, GEB010 AS Geburtstag , STATUS010 AS Status FROM RA010 WHERE RA010.STATUS010='Bewerber' ORDER BY NACHNAME010" WHERE="">
+				</List>
+				<SubNode Name="" Typ="Dynamisch" Text="" Key="" Tag="*" Image="22" bShowSubnodes="False" bShowKontextMenue="True"
+					SQL="" WHERE=""
+					Description="">
+					<List Tag="" bValueList="False" bListSubNodes="False" Image="22" New="True" Edit="False" Delete="True" SelectNode="False" bShowKontextMenue="True"
+						SQL="" WHERE="">
+					</List>	
+				</SubNode>
+			</SubNode>
+			<SubNode Name="Notare" Typ="Statisch" Text="Notare" Key="Notare" Tag="Notare"  bShowSubnodes="False" Image="21" bShowKontextMenue="True"
+				SQL="" WHERE=""
+				Description="Liste aller aktiven Notare">
+				<List Tag="Notare" bValueList="False" bListSubNodes="False" Image="21" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT ID010, NACHNAME010 AS Nachname, VORNAME010 AS Vorname, ANREDE010 AS Anrede,  TITEL010 AS Titel, GEB010 AS Geburtstag, BESTELLT010 as Bestellt,AZ010 AS Aktenzeichen, AG010 AS Amtsgericht, LG010 AS Landgericht , STATUS010 AS Status FROM RA010 WHERE RA010.STATUS010='Notar' ORDER BY NACHNAME010" WHERE="">
+				</List>
+				<SubNode Name="" Typ="Dynamisch" Text="" Key="" Tag="*" Image="21" bShowSubnodes="False" bShowKontextMenue="True"
+					SQL="" WHERE=""
+					Description="">
+					<List Tag="" bValueList="False" bListSubNodes="False" Image="21" New="True" Edit="False" Delete="True" SelectNode="False" bShowKontextMenue="True"
+						SQL="" WHERE="">
+					</List>
+				</SubNode>	
+			</SubNode>
+			<SubNode Name="Notarebestellt" Typ="Statisch" Text="Notare bestellt" Key="Notare bestellt" Tag="Notare bestellt"  bShowSubnodes="False" Image="21" bShowKontextMenue="True"
+				SQL="" WHERE="" 
+				Description="Notare die im aktuellen Jahr bestellt wurden">
+				<List Tag="Notare" bValueList="False" bListSubNodes="False" Image="21" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT ID010, NACHNAME010 AS Nachname, VORNAME010 AS Vorname, ANREDE010 AS Anrede,  TITEL010 AS Titel, GEB010 AS Geburtstag, BESTELLT010 as Bestellt,AZ010 AS Aktenzeichen, AG010 AS Amtsgericht, LG010 AS Landgericht , STATUS010 AS Status FROM RA010 WHERE RA010.STATUS010='Notar' ANd Year(bestellt010) = Year(getdate()) ORDER BY NACHNAME010" WHERE="">
+				</List>
+				<SubNode Name="" Typ="Dynamisch" Text="" Key="" Tag="*" Image="21" bShowSubnodes="False" bShowKontextMenue="True"
+					SQL="" WHERE=""
+					Description="">
+					<List Tag="" bValueList="False" bListSubNodes="False" Image="21" New="True" Edit="False" Delete="True" SelectNode="False" bShowKontextMenue="True"
+						SQL="" WHERE="">
+					</List>			
+				</SubNode>	
+			</SubNode>
+			<SubNode Name="Notareausgeschieden" Typ="Statisch" Text="Notare ausgeschieden" Key="Notare ausgeschieden" Tag="Notare ausgeschieden"  bShowSubnodes="False" Image="21" bShowKontextMenue="True"
+				SQL="" WHERE=""
+				Description="Liste aller ausgeschiedenen Notare">
+				<List Tag="Notare" bValueList="False" bListSubNodes="False" Image="21" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT ID010, NACHNAME010 AS Nachname, VORNAME010 AS Vorname, ANREDE010 AS Anrede,  TITEL010 AS Titel, GEB010 AS Geburtstag, BESTELLT010 as Bestellt, AZ010 AS Aktenzeichen,AG010 AS Amtsgericht, STATUS010 AS Status , AUSGESCH010 as AusgeschiedenAm FROM RA010 WHERE RA010.STATUS010='ausgeschieden' OR RA010.STATUS010='a. D.' ORDER BY NACHNAME010" WHERE="">
+				</List>
+				<SubNode Name="" Typ="Dynamisch" Text="" Key="" Tag="*" Image="21" bShowSubnodes="False" bShowKontextMenue="True"
+					SQL="" WHERE=""
+					Description="">
+					<List Tag="" bValueList="False" bListSubNodes="False" Image="21" New="True" Edit="False" Delete="True" SelectNode="False" bShowKontextMenue="True"
+						SQL="" WHERE="">
+					</List>				
+				</SubNode>	
+			</SubNode>
+		</TreeNode> 
+		<TreeNode Name="Ausschreibungen" Typ="Statisch" Text="Ausschreibungen" Key="Ausschreibungen" Tag="Ausschreibungen" bShowSubnodes="True" Image="23" bShowKontextMenue="False" 
+			SQL="" WHERE=""
+			Description="Liste aller Ausschreibungsvorg&#228;nge">
+			<List Tag="Ausschreibungen" bValueList="False" bListSubNodes="False" Image="23" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+				SQL="SELECT ID020 AS IDJahr, JAHR020 AS Jahr, AZ020 AS Aktenzeichen, Count(Year(FRIST012)) AnzAusschreibungen FROM AUSSCHREIBUNG020 LEFT JOIN STELLEN012 ON ID020 = FK020012 GROUP BY ID020, AZ020, JAHR020 ORDER BY JAHR020" WHERE="">		
+			</List>
+			<SubNode Name="StellenJahr" Typ="Dynamisch" Text="" Key="" Tag="StellenJahr" Image="23" bShowSubnodes="False" bShowKontextMenue="True"
+				SQL="SELECT DISTINCT JAHR020 AS nodetext, ID020 AS nodekey, 'StellenJahr' AS nodetag  FROM AUSSCHREIBUNG020" 
+				WHERE=""
+				Description="Ausgeschriebene Stellen eines Jahres">
+				<List Tag="StellenJahr" bValueList="False" bListSubNodes="False" Image="3" New="True" Edit="True" Delete="True" SelectNode="True" bShowKontextMenue="True"
+					SQL="SELECT ID012 , BEZIRK012 As Bezirk, BESCH012 AS Beschreibung, AZ020 AS AZ, ANZ012 As AnzStellen, FRIST012 AS Bewerbungsfrist ,Count(CONVERT(varchar(40),ID013)) AS AnzBewerber FROM AUSSCHREIBUNG020 LEFT JOIN (STELLEN012 LEFT JOIN Bewerb013 ON ID012 = FK012013) ON ID020 = FK020012 GROUP BY ID012, BEZIRK012,BESCH012,AZ020,ANZ012,FRIST012 ORDER BY BEZIRK012" 
+					WHERE="FK020012=">
+				</List>
+				<SubNode Name="" Typ="Dynamisch" Text="" Key="" Tag="*" Image="3" bShowSubnodes="True" bShowKontextMenue="True"
+					SQL="SELECT ID012, BEZIRK012 As nodetext, ID012 As nodekey ,'*' AS nodetag FROM STELLEN012 ORDER BY BEZIRK012" 
+					WHERE="FK020012="
+					Description="">
+					<List Tag="Stellen" bValueList="True" bListSubNodes="True" Image="3" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+						SQL="SELECT ID012 , BEZIRK012 As Bezirk, BESCH012 AS Beschreibung, AZ020 AS AZ, ANZ012 As AnzStellen, FRIST012 AS Bewerbungsfrist ,Count(CONVERT(varchar(40),ID013)) AS AnzBewerber FROM AUSSCHREIBUNG020 LEFT JOIN (STELLEN012 LEFT JOIN Bewerb013 ON ID012 = FK012013) ON ID020 = FK020012 GROUP BY ID012, BEZIRK012,BESCH012,AZ020,ANZ012,FRIST012" 
+						WHERE="ID012=">
+					</List>
+					<SubNode Name="Bewerbungen" Typ="Statisch" Text="Bewerbungen" Key="Bewerbungen" Tag="Bewerbungen" Image="13" bShowSubnodes="False" bShowKontextMenue="True"
+						SQL="" WHERE=""
+						Description="Alle Berwerbungen auf diese Stelle">
+						<List Tag="Bewerbungen" bValueList="False" bListSubNodes="False" Image="13" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"					
+							SQL="SELECT ID013, (NACHNAME010 + ', ' + ISNULL(VORNAME010,'')) AS Bewerber, BEM013 AS Bemerkung , Rang013 As Rang, Cast(CONVERT(money,PUNKTESUM013)as varchar(30)) as Gesamtpunktzahl , BEZIRK012 AS Bezirk , CASE ZUSAGE013 WHEN -1 THEN 'Ja' WHEN 0 THEN 'Nein' END AS Zusage , ZUSAGE013, FK010013 as IDPers , FK012013 AS IDStelle FROM (BEWERB013 LEFT JOIN Stellen012 ON ID012 = FK012013) LEFT JOIN RA010 ON ID010 = FK010013 ORDER BY Rang013" 
+							WHERE="BEWERB013.FK012013=">
+						</List>
+					</SubNode>	
+					<SubNode Name="Dokumente" Typ="Statisch" Text="Dokumente" Key="Dokumente" Tag="Dokumente" Image="11" bShowSubnodes="False" bShowKontextMenue="True"
+						SQL="" WHERE=""
+						Description="Alle Dokumente zu dieser Stelle">
+						<List Tag="Dokumente" bValueList="False" bListSubNodes="False" Image="11" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+							SQL="SELECT ID018, CASE WHEN ALIAS018 IS NULL THEN  Template018 ELSE ALIAS018 END as Anzeigename, NACHNAME010 + ', ' + ISNULL(Vorname010,'') AS Empf&#228;nger, Create018 AS ErstelltAm, DOCNAME018 AS Dokumentenname ,FK010018, FK012018 FROM DOC018 Left JOIN RA010 ON ID010 = FK010018 ORDER BY CREATE018 DESC" 
+							WHERE=" DOC018.FK012018=">
+						</List>	
+					</SubNode>
+				</SubNode>
+			</SubNode>	
+		</TreeNode> 
+		<TreeNode Name="Bewerbungen" Typ="Statisch" Text="Bewerbungen" Key="Bewerbungen" Tag="Bewerbungen" bShowSubnodes="True" Image="13" bShowKontextMenue="True" 
+			SQL="SELECT ID013, (NACHNAME010 + ', ' + ISNULL(VORNAME010,'')) AS Bewerber , BEM013 AS Bemerkung , FRIST012 AS Bewerbungsfrist , BEZIRK012 AS Bezirk, RANG013 AS Rang, ID010 as IDPers FROM (BEWERB013 LEFT JOIN Stellen012 ON ID012 = FK012013) LEFT JOIN RA010 ON ID010 = FK010013" WHERE=""
+			Description="Liste aller Bewerbungen">
+			<List Tag="Bewerbungen" bValueList="False" bListSubNodes="False" Image="14" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+				SQL="SELECT ID013, (NACHNAME010 + ', ' + ISNULL(VORNAME010,'')) AS Bewerber ,  BEM013 AS Bemerkung , EINGANG013 as Bewerbungsdatum, BEZIRK012 AS Bezirk, RANG013 AS Rang, CASE ZUSAGE013 WHEN -1 THEN 'Ja' WHEN 0 THEN 'Nein' END AS Zusage ,FRIST012 AS Bewerbungsfrist , ID010 as IDPers FROM (BEWERB013 LEFT JOIN Stellen012 ON ID012 = FK012013) LEFT JOIN RA010 ON ID010 = FK010013" WHERE="">		
+			</List>
+			<SubNode Name="" Typ="Dynamisch" Text="" Key="" Tag="*" Image="7" bShowSubnodes="False" bShowKontextMenue="True" 
+				SQL="" WHERE=""
+				Description="">
+				<List Tag="" bValueList="False" bListSubNodes="False" Image="7" New="True" Edit="False" Delete="True" SelectNode="False" bShowKontextMenue="True"
+					SQL="" WHERE="">
+				</List>			
+			</SubNode>	
+		</TreeNode> 
+		<TreeNode Name="Dokumente" Typ="Statisch" Text="Dokumente" Key="Dokumente" Tag="Dokumente" bShowSubnodes="True" Image="11" bShowKontextMenue="True"  
+			SQL="" WHERE=""
+			Description="Liste aller Dokumente"> 
+			<List Tag="" bValueList="False" bListSubNodes="False" Image="11" New="True" Edit="True" Delete="True" SelectNode="True" bShowKontextMenue="True"
+				SQL="SELECT ID018, CASE WHEN ALIAS018 IS NULL THEN  Template018 ELSE ALIAS018 END as Anzeigename, NACHNAME010 + ', ' + ISNULL(Vorname010,'') AS Empf&#228;nger , BEZIRK012 + ' ' + CAST(Year(FRIST012) AS Varchar(5)) AS Stelle, CREATE018 as ErstelltAm , DOCNAME018 as Dokument, Template018 AS Vorlage FROM DOC018 LEFT JOIN STELLEN012 ON FK012018 = ID012 LEFT JOIN RA010 ON ID010 = FK010018 ORDER BY CREATE018 DESC" WHERE="">		
+			</List>
+			<SubNode Name="Letzte Woche" Typ="Statisch" Text="Letzte Woche" Key="Letzte Woche" Tag="Letzte Woche" bShowSubnodes="True" Image="11" bShowKontextMenue="True"
+				SQL="" WHERE=""
+				Description="Liste aller Dokumente der letzen Woche">
+				<List Tag="Letzte Woche" bValueList="False" bListSubNodes="False" Image="11" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT ID018, CASE WHEN ALIAS018 IS NULL THEN  Template018 ELSE ALIAS018 END as Anzeigename, NACHNAME010 + ', ' + ISNULL(Vorname010,'') AS Empf&#228;nger, BEZIRK012 + ' ' + CAST(Year(FRIST012) AS Varchar(5)) AS Stelle, CREATE018 as ErstelltAm, DOCNAME018 as Dokument, Template018 AS Vorlage FROM DOC018 LEFT JOIN STELLEN012 ON FK012018 = ID012 LEFT JOIN RA010 ON ID010 = FK010018 WHERE CREATE018>= Getdate()-7 ORDER BY CREATE018 DESC" 
+					WHERE="">
+				</List>
+			</SubNode>
+			<SubNode Name="Letzter Monat" Typ="Statisch" Text="Letzter Monat" Key="Letzter Monat" Tag="Letzter Monat" bShowSubnodes="True" Image="11" bShowKontextMenue="True"
+				SQL="" WHERE=""
+				Description="Liste aller Dokumente des letzen Monats">
+				<List Tag="Letzter Monat" bValueList="False" bListSubNodes="False" Image="11" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT ID018, CASE WHEN ALIAS018 IS NULL THEN  Template018 ELSE ALIAS018 END as Anzeigename, NACHNAME010 + ', ' + ISNULL(Vorname010,'') AS Empf&#228;nger, BEZIRK012 + ' ' + CAST(Year(FRIST012) AS Varchar(5)) AS Stelle, CREATE018 as ErstelltAm , DOCNAME018 as Dokument, Template018 AS Vorlage FROM DOC018 LEFT JOIN STELLEN012 ON FK012018 = ID012 LEFT JOIN RA010 ON ID010 = FK010018 WHERE CREATE018>= Getdate()-30" 
+					WHERE="">
+				</List>
+			</SubNode>
+		</TreeNode> 
+		<TreeNode Name="Fristen" Typ="Statisch" Text="Fristen" Key="Fristen" Tag="Fristen" bShowSubnodes="True" Image="17" bShowKontextMenue="False" 
+			SQL="" WHERE=""
+			Description="Liste aller eingetragenen Fristen">
+			<List Tag="" bValueList="False" bListSubNodes="False" Image="17" New="True" Edit="True" Delete="True" SelectNode="True" bShowKontextMenue="True"
+				SQL="SELECT ID024, '', FRIST024 AS Fristdatum, BEMERKUNG024 AS Bemerkung, (NACHNAME010 + ', ' + ISNULL(VORNAME010,'')) AS Person, CREATE024 AS ErstelltAm  FROM FRIST024 INNER JOIN RA010 ON ID010 = FK010024 ORDER BY FRIST024 DESC" WHERE="">		
+			</List>
+			<SubNode Name="Heute" Typ="Statisch" Text="Heute" Key="Heute" Tag="Heute" bShowSubnodes="True" Image="17" bShowKontextMenue="True"
+				SQL="" WHERE=""
+				Description="Liste aller Heute f&#228;lligen Fristen">
+				<List Tag="Heute" bValueList="False" bListSubNodes="False" Image="17" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT ID024, '',FRIST024 AS Fristdatum, BEMERKUNG024 AS Bemerkung , (NACHNAME010 + ', ' + ISNULL(VORNAME010,'')) AS Person, CREATE024 AS ErstelltAm  FROM FRIST024 INNER JOIN RA010 ON ID010 = FK010024 WHERE FRIST024 between getdate()-1 and getdate() ORDER BY FRIST024 DESC" 
+					WHERE="">
+				</List>
+			</SubNode>
+			<SubNode Name="Morgen" Typ="Statisch" Text="Morgen" Key="Morgen" Tag="Morgen" bShowSubnodes="True" Image="17" bShowKontextMenue="True"
+				SQL="" WHERE=""
+				Description="Liste aller Morgen f&#228;lligen Fristen">
+				<List Tag="Morgen" bValueList="False" bListSubNodes="False" Image="17" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT ID024, '',FRIST024 AS Fristdatum, BEMERKUNG024 AS Bemerkung , (NACHNAME010 + ', ' + ISNULL(VORNAME010,'')) AS Person, CREATE024 AS ErstelltAm  FROM FRIST024 INNER JOIN RA010 ON ID010 = FK010024 WHERE FRIST024 between getdate() and getdate()+1 ORDER BY FRIST024 DESC" 
+					WHERE="">
+				</List>
+			</SubNode>
+			<SubNode Name="Abgelaufen" Typ="Statisch" Text="Abgelaufen" Key="Abgelaufen" Tag="Abgelaufen" bShowSubnodes="True" Image="17" bShowKontextMenue="True"
+				SQL="" WHERE=""
+				Description="Liste aller abgelaufenen Fristen">
+				<List Tag="Abgelaufen" bValueList="False" bListSubNodes="False" Image="17" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT ID024, '', FRIST024 AS Fristdatum, BEMERKUNG024 AS Bemerkung , (NACHNAME010 + ', ' + ISNULL(VORNAME010,'')) AS Person, CREATE024 AS ErstelltAm  FROM FRIST024 INNER JOIN RA010 ON ID010 = FK010024 WHERE FRIST024  &lt; getdate()-1 ORDER BY FRIST024 DESC" 
+					WHERE="">
+				</List>
+			</SubNode>
+		</TreeNode> 
+		<TreeNode Name="Statistik" Typ="Statisch" Text="Statistik" Key="Statistik" Tag="Statistik" bShowSubnodes="True" Image="20" bShowKontextMenue="False" 
+			SQL="" WHERE=""
+			Description="Liste aller m&#246;glichen Statistiken">
+			<List Tag="Statistik" bValueList="False" bListSubNodes="True" Image="20" New="True" Edit="False" Delete="True" SelectNode="True" bShowKontextMenue="False"
+				SQL="" WHERE=""
+				Description="">		
+			</List>
+			<SubNode Name="Gesamt pro Bezirk" Typ="Statisch" Text="Gesamt pro Bezirk " Key="GesamtProBezirk" Tag="GesamtProBezirk" bShowSubnodes="True" Image="20" bShowKontextMenue="False"
+				SQL="" WHERE=""
+				Description="Anzahl der Notare pro LG Bezirk">
+				<List Tag="GesamtProBezirk" bValueList="False" bListSubNodes="False" Image="20" New="False" Edit="False" Delete="False" SelectNode="False" bShowKontextMenue="True"
+					SQL="Select ID003, LGNAME003 AS Landgericht ,COUNT(*) AS Anzahl FROM  RA010 INNER JOIN LG003 ON LG010 = LGNAME003 WHERE STATUS010 = 'Notar' GROUP BY ID003, LGNAME003 ORDER BY LGNAME003" 
+					WHERE="">
+				</List>
+			</SubNode>
+			<SubNode Name="Gesamt pro AG" Typ="Statisch" Text="Gesamt pro AG " Key="GesamtProAg" Tag="GesamtProAg" bShowSubnodes="True" Image="20" bShowKontextMenue="False"
+				SQL="" WHERE=""
+				Description="Anzahl der Notare pro AG Bezirk">
+				<List Tag="GesamtProAg" bValueList="False" bListSubNodes="False" Image="20" New="False" Edit="False" Delete="False" SelectNode="False" bShowKontextMenue="True" 
+					SQL="Select ID004, LGNAME003 AS Landgericht, AGNAME004 AS Amtsgericht ,COUNT(*) AS Anzahl FROM  RA010 INNER JOIN  (AG004 LEFT JOIN LG003 ON FK003004 =ID003 ) ON AG010 = AGNAME004 WHERE STATUS010 = 'Notar' GROUP BY ID004, LGNAME003, AGNAME004 ORDER BY LGNAME003, AGNAME004" 
+					WHERE="">
+				</List>
+			</SubNode>
+			<SubNode Name="Altersstruktur" Typ="Statisch" Text="Altersstruktur" Key="Altersstruktur" Tag="Altersstruktur" bShowSubnodes="True" Image="20" bShowKontextMenue="False"
+				SQL="" WHERE=""
+				Description="Altersverteilung der Notare">
+				<List Tag="Altersstruktur" bValueList="False" bListSubNodes="False" Image="20" New="False" Edit="False" Delete="False" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT 5 as Orderby, '&gt; 70' AS Altersgruppe , Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-100,Getdate()) AND  DATEADD(year,-70,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 10 as Orderby, '65 - 70' AS Altersgruppe , Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-70,Getdate()) AND  DATEADD(year,-65,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 15 as Orderby, '60 - 64'  AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-65,Getdate()) AND  DATEADD(year,-60,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 20 as Orderby, '55 - 59'  AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-60,Getdate()) AND DATEADD(year,-55,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 25 as Orderby,'50 - 54'  AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-55,Getdate()) AND DATEADD(year,-50,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 30 as Orderby, '45 - 49'  AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-50,Getdate()) AND  DATEADD(year,-45,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 35 as Orderby,'39 - 44'  AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-45,Getdate()) AND  DATEADD(year,-39,getdate()) AND RA010.STATUS010='Notar' UNION SELECT 40 as Orderby,'&lt; 39'  AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE geb010 between DATEADD(year,-39,Getdate()) AND  getdate() AND RA010.STATUS010='Notar' UNION SELECT 45 as Orderby,'ohne Geburtsdatum' AS Altersgruppe, Count(*) as Anzahl FROM RA010 WHERE ISNULL(geb010,'')=''  AND RA010.STATUS010='Notar' ORDER BY Orderby" WHERE="">
+				</List>
+			</SubNode>
+		</TreeNode> 
+		<TreeNode Name="Stammdaten" Typ="Statisch" Text="Stammdaten" Key="Stammdaten" Tag="Stammdaten" bShowSubnodes="False" Image="1" bShowKontextMenue="True"
+			SQL="" WHERE=""> 
+			<List Tag="Stammdaten" bValueList="False" bListSubNodes="True" Image="1" New="True" Edit="False" Delete="False" SelectNode="False" bShowKontextMenue="True"
+				SQL="" WHERE="">
+			</List>	
+			<SubNode Name="Oberlandesgerichte" Typ="Statisch" Text="Oberlandesgerichte" Key="Oberlandesgerichte" Tag="Oberlandesgerichte" bShowSubnodes="True" Image="1" bShowKontextMenue="True"
+				SQL="" WHERE="">
+				<List Tag="" bValueList="False" bListSubNodes="False" Image="1" New="True" Edit="True" Delete="False" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT ID002, OLGNAME002 AS OLG,OLGSTR002 AS Strasse, OLGPLZ002 AS PLZ, OLGORT002 as Ort FROM OLG002" 
+					WHERE="">
+				</List>
+			</SubNode>
+			<SubNode Name="Landgerichte" Typ="Statisch" Text="Landgerichte" Key="Landgerichte" Tag="Landgerichte" bShowSubnodes="True" Image="1" bShowKontextMenue="True"
+				SQL="" WHERE="">
+				<List Tag="" bValueList="False" bListSubNodes="False" Image="1" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT ID003, LGNAME003 AS Landgericht,LGSTR003 AS Strasse, LGPLZ003 AS PLZ, LGORT003 as Ort, OLGName002 as OLGBezirk FROM LG003 INNER JOIN OLG002 ON FK002003 = ID002" 
+					WHERE="">
+				</List>
+			</SubNode>
+			<SubNode Name="Amtsgerichte" Typ="Statisch" Text="Amtsgerichte" Key="Amtsgerichte" Tag="Amtsgerichte" bShowSubnodes="True" Image="1" bShowKontextMenue="True"
+				SQL="" WHERE="">
+				<List Tag="" bValueList="False" bListSubNodes="False" Image="1" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+					SQL="SELECT ID004, AGNAME004 AS Amtsgericht,AGSTR004 AS Strasse, AGPLZ004 AS PLZ, AGORT004 as Ort , LGNAME003 as Bezirk FROM (AG004 INNER JOIN LG003 ON FK003004 = ID003) INNER JOIN OLG002 ON FK002003 = ID002" 
+					WHERE="">
+				</List>
+			</SubNode>	
+		</TreeNode> 
+		<TreeNode Name="Benutzerverwaltung" Typ="Statisch" Text="Benutzerverwaltung" Key="Benutzerverwaltung" Tag="Benutzerverwaltung" bShowSubnodes="False" Image="25"  bShowKontextMenue="True"
+			SQL="" WHERE=""> 
+			<List Tag="Benutzerverwaltung" bValueList="False" bListSubNodes="False" Image="25" New="True" Edit="True" Delete="True" SelectNode="False" bShowKontextMenue="True"
+				SQL="SELECT ID001, USERNAME001 as Benutzername, VORNAME001 as Vorname, Nachname001 as Nachname,  tel001 as Telefon, fax001 as Telefax, email001 as Email, CASE SYSTEM001 WHEN 0 Then 'Nein'  WHEN -1 THEN 'Ja' END AS Systemverwalter FROM USER001" WHERE="">
+			</List>		
+		</TreeNode> 
+	</Tree>
+	<Edit>
+		<Oberlandesgerichte Name="Oberlandesgerichte" SQL="SELECT OLGNAME002 AS Name, OLGSTR002 AS Str, OLGPLZ002 AS PLZ, OLGORT002 AS Ort, OLGMAIL002 AS Mail, OLGTEL002 AS Tel, OLGFAX002 AS Fax, '' AS BezirkID, MODIFY002 AS MODIFY,CREATE002 AS DATECREATE, CFROM002 AS CFROM , MFROM002 AS MFROM, ID002 AS ID FROM OLG002" 
+			WHERE="OLG002.ID002=" IDOrder="" Image="1">
+			<Relation Name="" Image="3" DelFlag="" AltImage="" AltImageField="" AltImageValue="" SQL="" Where="">
+			</Relation>
+		</Oberlandesgerichte>
+		<Landgerichte Name="Landgerichte" SQL="SELECT LGNAME003 AS Name, LGSTR003 AS Str, LGPLZ003 AS PLZ, LGORT003 AS Ort, LGMAIL003 AS Mail, LGTEL003 AS Tel, LGFAX003 AS Fax, FK002003 AS BezirkID, MODIFY003 AS MODIFY,CREATE003 AS DATECREATE, CFROM003 AS CFROM , MFROM003 AS MFROM, ID003 AS ID FROM LG003" 
+			WHERE="LG003.ID003=" IDOrder=""  Image="1">
+			<Relation Name="" Image="3" DelFlag="" AltImage="" AltImageField="" AltImageValue="" SQL="" Where="">
+			</Relation>
+		</Landgerichte>
+		<Amtsgerichte Name="Amtsgerichte" SQL="SELECT AGNAME004 AS Name, AGSTR004 AS Str, AGPLZ004 AS PLZ, AGORT004 AS Ort, AGMAIL004 AS Mail, AGTEL004 AS Tel, AGFAX004 AS Fax, FK003004 AS BezirkID, MODIFY004 AS MODIFY,CREATE004 AS DATECREATE, CFROM004 AS CFROM , MFROM004 AS MFROM, ID004 AS ID FROM AG004" 
+			WHERE="AG004.ID004=" IDOrder="" Image="1">
+			<Relation Name="" Image="3" DelFlag="" AltImage="" AltImageField="" AltImageValue="" SQL="" Where="">
+			</Relation>
+		</Amtsgerichte>
+		<Bewerbungen Name="Bewerbungen" IDOrder="" SQL="SELECT * FROM BEWERB013" WHERE="BEWERB013.ID013=" Image="13">
+			<Relation Name="" Image="3" DelFlag="" AltImage="" AltImageField="" AltImageValue="" SQL="" Where="">
+			</Relation>
+		</Bewerbungen>
+		<Benutzerverwaltung Name="Benutzerverwaltung" IDOrder="" SQL="SELECT * FROM USER001" WHERE="USER001.ID001=" Image="25">
+			<Defaultwert Name="Systemverwalter" Fieldname="SYSTEM001" SQL="" Value="False"></Defaultwert>
+			<Relation Name="" Image="3" DelFlag="" AltImage="" AltImageField="" AltImageValue="" SQL="" Where="">
+			</Relation>
+		</Benutzerverwaltung>
+		<Ausschreibungen Name="Ausschreibung" IDOrder="" SQL="SELECT * FROM AUSSCHREIBUNG020" WHERE="AUSSCHREIBUNG020.ID020=" Image="23">
+			<LockedField Name="txtAZ" Fieldname="txtAZ" Locked="True" Enabled="False" Visible="True"></LockedField>
+			<LockedField Name="txtJahr" Fieldname="txtJahr" Locked="True" Enabled="False" Visible="True"></LockedField>
+			<Relation Name="Ausgeschriebene Stellen" Image="3" DelFlag="" AltImage="" AltImageField="" AltImageValue="" 
+				SQL="SELECT ID012, BEZIRK012 AS Bezirk, FRIST012 as Bewerbungsfrist, ANZ012 As AnzStellen ,Count(CONVERT(varchar(40),ID013)) AS AnzBewerber FROM STELLEN012 LEFT JOIN BEWERB013 ON ID012 = FK012013 GROUP BY ID012, BEZIRK012, FRIST012, ANZ012 ORDER BY BEZIRK012" 
+				WHERE="STELLEN012.FK020012=">
+			</Relation>
+			<Relation Name="Dokumente" Image="11" DelFlag="" AltImage="" AltImageField="" AltImageValue=""
+				SQL="SELECT ID018, CASE WHEN ALIAS018 IS NULL THEN  Template018 ELSE ALIAS018 END as Anzeigename, NACHNAME010 + ', ' + ISNULL(Vorname010,'') AS Empf&#228;nger, BEZIRK012 As Bezirk, Create018 AS ErstelltAm , DOCNAME018 AS Dokumentenname ,FK010018, FK012018 FROM DOC018 Left JOIN RA010 ON ID010 = FK010018 LEFT JOIN STELLEN012 ON FK012018 = ID012 ORDER BY CREATE018 DESC" 
+				WHERE=" DOC018.FK020018=">
+			</Relation>
+		</Ausschreibungen>
+		<AusgeschriebeneStellen Name="Ausgeschriebene Stellen" IDOrder="" SQL="SELECT * FROM STELLEN012 INNER JOIN AUSSCHREIBUNG020 On ID020 = FK020012" WHERE="STELLEN012.ID012=" Image="3">
+			<Relation Name="Dokumente" Image="11" DelFlag="" AltImage="" AltImageField="" AltImageValue=""
+				SQL="SELECT ID018, CASE WHEN ALIAS018 IS NULL THEN  Template018 ELSE ALIAS018 END as Anzeigename, NACHNAME010 + ', ' + ISNULL(Vorname010,'') AS Empf&#228;nger, Create018 AS ErstelltAm, DOCNAME018 AS Dokumentenname ,FK010018, FK012018 FROM DOC018 Left JOIN RA010 ON ID010 = FK010018 ORDER BY CREATE018 DESC" 
+				WHERE=" DOC018.FK012018=">
+			</Relation>
+			<Relation Name="Bewerbungen" Image="13" DelFlag="" AltImage="" AltImageField="" AltImageValue=""
+				SQL="SELECT ID013, (NACHNAME010 + ', ' + ISNULL(VORNAME010,'')) AS Bewerber, BEM013 AS Bemerkung , Rang013 As Rang, Cast(CONVERT(money,PUNKTESUM013)as varchar(30)) as Punkte, CASE ZUSAGE013 WHEN -1 THEN 'Ja' WHEN 0 THEN 'Nein' END AS Zusage , ZUSAGE013, FK010013 as IDPers , FK012013 AS IDStelle FROM (BEWERB013 LEFT JOIN Stellen012 ON ID012 = FK012013) LEFT JOIN RA010 ON ID010 = FK010013 ORDER BY Rang013"
+				WHERE="BEWERB013.FK012013=">
+			</Relation>
+		</AusgeschriebeneStellen>
+		<Personenkartei Name="Personenkartei" IDOrder="" SQL="SELECT * FROM RA010" WHERE="RA010.ID010=" Image="7">
+			<Defaultwert Name="Anrede" Fieldname="Anrede010" SQL="" Value="Herr"></Defaultwert>
+			<Relation Name="Bewerbungen" Image="13" DelFlag="" AltImage="" AltImageField="" AltImageValue="" 
+				SQL="SELECT ID013, BEZIRK012 AS Bezirk ,BESCH012 AS Beschreibung, FRIST012 AS Bewerbungsfrist, PUNKTESUM013 AS Gesamtpunktzahl,PUNKTESUM013, PUNKTE01013, PUNKTE02013, PUNKTE03013, PUNKTE04013, FK010013, FK012013 FROM BEWERB013 LEFT JOIN STELLEN012 ON ID012 = FK012013" 
+				WHERE="BEWERB013.FK010013=">
+			</Relation>
+			<Relation Name="Dokumente" Image="11" DelFlag="" AltImage="" AltImageField="" AltImageValue="" 
+				SQL="SELECT ID018, CASE WHEN ALIAS018 IS NULL THEN  Template018 ELSE ALIAS018 END AS Anzeigename, Create018 AS ErstelltAm  , BEZIRK012 + ' ' + CAST(Year(FRIST012) AS Varchar(5)) AS Stelle, DOCNAME018 AS Dokumentenname ,FK010018 FROM DOC018 LEFT JOIN  STELLEN012 ON FK012018 = ID012 ORDER BY CREATE018 DESC" 
+				WHERE=" DOC018.FK010018=">
+			</Relation>
+			<Relation Name="Aktenort" Image="19" DelFlag="" AltImage="" AltImageField="" AltImageValue="" 
+				SQL="SELECT ID017, Create017 AS Eingetragen,AKTENORT017 AS Standort,FK010017 , FK013017 FROM AKTENORT017 ORDER BY CREATE017 DESC" 
+				WHERE="AKTENORT017.FK010017=">
+			</Relation>
+			<Relation Name="Disziplinarma&#223;nahmen" Image="5" DelFlag="" AltImage="" AltImageField="" AltImageValue="" 
+				SQL="SELECT ID019, DATUM019 AS Datum , MASSNAHME019 AS Ma&#223;nahme, VERSTOSS019 AS Versto&#223; ,FK010019 FROM DISZ019 " 
+				WHERE=" DISZ019.FK010019=">
+			</Relation>
+			<Relation Name="Forderungen" Image="5" DelFlag="" AltImage="" AltImageField="" AltImageValue="" 
+				SQL="SELECT ID022, GLAEUBIGER022 AS Gl&#228;ubiger, BETRAG022 AS Betrag ,FK010022 FROM FORD022 " 
+				WHERE=" FORD022.FK010022=">
+			</Relation>
+			<Relation Name="Fristen" Image="17" DelFlag="" AltImage="" AltImageField="" AltImageValue="" 
+				SQL="SELECT ID024, FRIST024 AS Fristdatum, BEMERKUNG024 AS Bermerkung ,FK010024 FROM FRIST024 " 
+				WHERE=" FRIST024.FK010024=">
+			</Relation>
+		</Personenkartei>
+		<Fristen Name="Fristen" IDOrder="" SQL="SELECT * FROM FRIST024" WHERE="FRIST024.ID024=" Image="18">
+			<Relation Name="" Image="3" DelFlag="" AltImage="" AltImageField="" AltImageValue="" SQL="" Where="">
+			</Relation>
+		</Fristen>
+		<Aktenort Name="Aktenort" IDOrder="" SQL="SELECT * FROM AKTENORT017" WHERE="AKTENORT017.ID017=" Image="19">
+			<LockedField Name="txtEingetragenAm" Fieldname="txtEingetragenAm" Locked="True" Enabled="False" Visible="True" LockedNew="True" ></LockedField>
+			<LockedField Name="txtEingetragenVon" Fieldname="txtEingetragenVon" Locked="True" Enabled="False" Visible="True" LockedNew="True"></LockedField>
+			<LockedField Name="txtPerson" Fieldname="txtPerson" Locked="True" Enabled="False" Visible="True" LockedNew="True"></LockedField>
+			<Relation Name="" Image="3" DelFlag="" AltImage="" AltImageField="" AltImageValue="" SQL="" Where="">
+			</Relation>
+		</Aktenort>
+		<Disziplinarmassnahmen Name="Disziplinarma&#223;nahmen" IDOrder="" SQL="SELECT * FROM DISZ019" WHERE="DISZ019.ID019=" Image="5">
+			<Relation Name="" SQL="" Where="">
+			</Relation>
+		</Disziplinarmassnahmen>
+	</Edit>
+	<Search>
+		<Personen 
+			SQL="SELECT ID010, NACHNAME010 AS Nachname ,VORNAME010 AS Vorname ,STATUS010 AS Status ,ANREDE010 AS Anrede ,TITEL010 AS Titel FROM RA010 ORDER BY NACHNAME010"
+			OptWhere="">
+			<Nachname Name="Personen Nachname" Field="NACHNAME010" InUserList="True"></Nachname>
+			<Vorname Name="Personen Vorname" Field="VORNAME010" InUserList="True"></Vorname>
+		</Personen>
+		<PersonenNachStellen 
+			SQL="SELECT ID010, NACHNAME010 AS Nachname ,VORNAME010 AS Vorname ,STATUS010 AS Status ,ANREDE010 AS Anrede ,TITEL010 AS Titel FROM RA010 INNER JOIN BEWERB013 ON (FK010013 = ID010) INNER JOIN STELLEN012 ON (FK012013 = ID012 ) ORDER BY NACHNAME010"
+			OptWhere="STELLEN012.ID012=">
+			<Nachname Name="PersonenNachStellen Nachname" Field="NACHNAME010" InUserList="False"></Nachname>
+			<Vorname Name="PersonenNachStellen Vorname" Field="VORNAME010" InUserList="False"></Vorname>
+		</PersonenNachStellen>
+		<Bewerber 
+			SQL="SELECT ID010, NACHNAME010 AS Nachname ,VORNAME010 AS Vorname ,ANREDE010 AS Anrede ,TITEL010 AS Titel FROM RA010 WHERE Status010 = 'Bewerber' ORDER BY NACHNAME010"
+			OptWhere="">
+			<Nachname Name="Bewerber Nachname" Field="NACHNAME010" InUserList="True"></Nachname>
+			<Vorname Name="Bewerber Vorname" Field="VORNAME010" InUserList="True"></Vorname>
+		</Bewerber>
+		<Notare 
+			SQL="SELECT ID010, NACHNAME010 AS Nachname ,VORNAME010 AS Vorname ,ANREDE010 AS Anrede ,TITEL010 AS Titel FROM RA010 WHERE Status010 = 'Notar' ORDER BY NACHNAME010"
+			OptWhere="">
+			<Nachname Name="Notare Nachname" Field="NACHNAME010" InUserList="True"></Nachname>
+			<Vorname Name="Notare Vorname" Field="VORNAME010" InUserList="True"></Vorname>
+			<AZ Name="Notare AZ" Field="AZ010" InUserList="True"></AZ>
+		</Notare>
+		<Dokumente 
+			SQL="SELECT ID018 , DOCNAME018 as Dokument,CASE WHEN ALIAS018 IS NULL THEN  Template018 ELSE ALIAS018 END as Anzeigename, Template018 as vorlage, CREATE018 AS Erstellt ,Nachname010 + ', ' + Vorname010 as Empf&#228;nger FROM DOC018 INNER JOIN RA010 On ID010 = FK010018"
+			OptWhere="">
+			<Titel Name="Dokumente Titel" Field="DOCNAME018" InUserList="True"></Titel>
+			<Anzeigename Name="Dokumente Anzeigename" Field="ALIAS018" InUserList="True"></Anzeigename>
+			<Empfaenger Name="Dokumente Empf&#228;nger" Field="Nachname010 + ', ' + ISNULL(Vorname010,'')" InUserList="True"></Empfaenger>
+		</Dokumente>
+		<Stellen 
+			SQL="SELECT ID012,BEZIRK012 AS LGBezirk ,BESCH012 AS Beschreibung ,ANZ012 AS AnzStellen,FRIST012 AS Bewerbungsfrist FROM STELLEN012"
+			OptWhere="">
+			<Bezirk Name="Stellen Bezirk" Field="BEZIRK012" InUserList="True"></Bezirk>
+		</Stellen>
+		<Ausschreibungen 
+			SQL="SELECT ID020,AZ020 AS Aktenzeichen ,Jahr020 AS Jahr FROM AUSSCHREIBUNG020"
+			OptWhere="">
+			<AZ Name="Ausschreibungen AZ" Field="AZ020" InUserList="True"></AZ>
+			<Jahr Name="Ausschreibungen Jahr" Field="Jahr020" InUserList="True"></Jahr>
+		</Ausschreibungen>
+		<StellenNachAusschreibung 
+			SQL="SELECT ID012,BEZIRK012 AS LGBezirk ,BESCH012 AS Beschreibung ,ANZ012 AS AnzStellen,FRIST012 AS Bewerbungsfrist, AZ020 + ' (' + CAST(JAHR020 AS varchar(5)) + ')' AS Ausschreibung FROM STELLEN012 INNER JOIN AUSSCHREIBUNG020 ON ID020 = FK020012"
+			OptWhere="ID020=">
+			<Bezirk Name="StellenNachAusschreibung Bezirk" Field="BEZIRK012" InUserList="False"></Bezirk>
+		</StellenNachAusschreibung>
+	</Search>
+	<Imageindex>
+		
+	</Imageindex>
+	<SAT>
+		<User SQL="SELECT * FROM AbsenderDaten" PersIDReq="False" StellenIDReq="False" AusschrIDReq="False" Check="Absender">
+		</User>
+		<Empfaenger SQL="SELECT * FROM Empf&#228;ngerDaten" PersIDReq="True" StellenIDReq="False" AusschrIDReq="False" Check="RA">
+		</Empfaenger>
+		<Ausschreibung SQL="SELECT * FROM Ausschreibungsdaten" PersIDReq="False" StellenIDReq="False" AusschrIDReq="True" Check="Ausschreibung">
+		</Ausschreibung>
+		<Stellen SQL="SELECT * FROM StellenDaten" PersIDReq="False" StellenIDReq="True" AusschrIDReq="True" Check="Stellen">
+		</Stellen>
+		<Bewerber SQL="SELECT * FROM BewerberDaten" PersIDReq="True" StellenIDReq="True" AusschrIDReq="True" Check="Bewerber">
+		</Bewerber>
+		<Mitbewerber SQL="SELECT * FROM MitbewerberDaten ORDER BY MitbewerberRang" PersIDReq="False" StellenIDReq="True" AusschrIDReq="True" Check="Mitbewerber">
+		</Mitbewerber>
+		<MitbewerberZusage SQL="SELECT * FROM MitbewerberZugesagtDaten ORDER BY ZMitbewerberRang" PersIDReq="False" StellenIDReq="True"  AusschrIDReq="True" Check="ZMitbewerber">
+		</MitbewerberZusage>
+		<MitbewerberAbsage SQL="SELECT * FROM MitbewerberAbgesagtDaten ORDER BY AMitbewerberRang" PersIDReq="False" StellenIDReq="True"  AusschrIDReq="True" Check="AMitbewerber">
+		</MitbewerberAbsage>
+		<ListeBewerber SQL="NOTARE_ListeBewerber" PersIDReq="False" StellenIDReq="True" AusschrIDReq="True" Check="ListeBewerber_">
+		</ListeBewerber>
+		<ListeBewerberAbgelehnt SQL="NOTARE_ListeBewerberAbgelehnt" PersIDReq="False" StellenIDReq="True" AusschrIDReq="True" Check="ListeBewerberAbgelehnt">
+		</ListeBewerberAbgelehnt>
+		<ListeBewerberZugesagt SQL="NOTARE_ListeBewerberZugesagt" PersIDReq="False" StellenIDReq="True" AusschrIDReq="True" Check="ListeBewerberZugesagt">
+		</ListeBewerberZugesagt>
+		<ListeAusgeschriebeneStellen SQL="NOTARE_ListeAusgeschriebeneStellen" PersIDReq="False" StellenIDReq="False" AusschrIDReq="True" Check="ListeAusgeschriebeneStellen">
+		</ListeAusgeschriebeneStellen>
+	</SAT>
+</Root>
+
+<!-- 
+
+<Punkte SQL="SELECT * FROM PunkteBewerber">
+		</Punkte>
+
+Sonderzeichen
+&      &amp;
+'      &apos;
+<      &lt;
+>      &gt;
+"      &quot;
+A Umlaut  &#196;
+O Umlaut       &#214;
+U Umlaut      &#220;
+a Umlaut      &#228;
+o Umlaut      &#246;
+u Umlaut      &#252;
+sz      &#223;
+ -->
+ 
+ <!--
+		<TreeNode Name="Fortbildungen" Typ="Statisch" Text="Fortbildungen" Key="Fortbildungen" Tag="Fortbildungen" bShowSubnodes="True" Image="17" bShowKontextMenue="True" 
+			SQL="" WHERE="">
+			<List Tag="Fortbildungen" bValueList="False" bListSubNodes="True" Image="18" New="True" Edit="True" SelectNode="False" bShowKontextMenue="True"
+				SQL="SELECT ID011,THEMA011 AS Thema ,DATUM011 AS Datum ,VERANSTALTER011 AS Veranstalter,ANZHT011 AS Halbtage,CASE WHEN ANERKANNT011 =-1 THEN 'Ja' ELSE 'Nein' END AS Anerkannt FROM FORT011" WHERE="">		
+			</List>
+			<SubNode Name="" Typ="dynamisch" Text="" Key="" Tag="*" bShowSubnodes="True" Image="17" bShowKontextMenue="True"
+				SQL="" WHERE="">
+				<List Tag="" bValueList="False" bListSubNodes="False" Image="11" New="True" Edit="False" SelectNode="False" bShowKontextMenue="True"
+					SQL="" 
+					WHERE="">
+				</List>
+				<SubNode Name="Teilnehmer" Typ="Statisch" Text="Teilnehmer" Key="Teilnehmer" Tag="Teilnehmer" Image="7" bShowSubnodes="False" bShowKontextMenue="True"
+					SQL="" WHERE="">
+					<List Tag="" bValueList="False" bListSubNodes="False" Image="7" New="True" Edit="False" SelectNode="True" bShowKontextMenue="True"
+						SQL="SELECT ID010, NACHNAME010 AS Nachname, VORNAME010 AS Vorname, TITEL010 AS Titel, GEB010 AS Geburtstag, FK010014, FK011014, ID014 FROM (AFORT014 LEFT JOIN FORT011 ON ID011 = FK011014) LEFT JOIN RA010 ON ID010 = FK010014" WHERE="AFORT014.FK011014=">
+					</List>
+				</SubNode>	
+			</SubNode>
+		</TreeNode> 
+		-->
