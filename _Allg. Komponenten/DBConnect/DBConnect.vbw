@@ -1,0 +1,5 @@
+clsDBConn = 15, 0, 1156, 782, 
+frmDBConnProperties = 125, 64, 970, 665, , 198, 198, 1104, 720, C
+frmUserLogin = 53, 8, 956, 640, , 154, 161, 1063, 785, C
+frmUserChangePWD = 113, 113, 990, 737, , 109, 102, 992, 718, C
+modDBConHelper = 24, 24, 752, 433, 
